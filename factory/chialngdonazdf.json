@@ -1,0 +1,9 @@
+{
+	"name": "chialngdonazdf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "97dcaf24-b760-4c60-a2d0-011f2dfd73a9",
+		"tenantId": "f9338c78-d205-4d8f-afbb-5ef7cc9eea27"
+	}
+}
