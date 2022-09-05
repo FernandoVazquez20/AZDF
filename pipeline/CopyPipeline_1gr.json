@@ -26,17 +26,16 @@
 				],
 				"typeProperties": {
 					"source": {
-						"type": "BinarySource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": true
+							"recursive": true,
+							"wildcardFolderPath": "azure-data-factory-by-example-main/SampleData/SweetTreats",
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "BinaryReadSettings",
-							"compressionProperties": {
-								"type": "ZipDeflateReadSettings",
-								"preserveZipFileNameAsFolder": false
-							}
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
@@ -49,7 +48,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_1gr",
+						"referenceName": "ABS_CSV_SweetTReats",
 						"type": "DatasetReference"
 					}
 				],
