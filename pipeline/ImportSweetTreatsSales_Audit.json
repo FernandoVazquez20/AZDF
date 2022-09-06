@@ -19,7 +19,7 @@
 						"type": "DelimitedTextSource",
 						"additionalColumns": [
 							{
-								"name": "SoureFileName",
+								"name": "SourceFileName",
 								"value": "$$FILEPATH"
 							},
 							{
@@ -54,37 +54,49 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "SalesMonth"
+									"name": "Retailer",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Retailer",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SalesMonth",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "SalesMonth",
+									"type": "DateTime",
 									"physicalType": "date"
 								}
 							},
 							{
 								"source": {
-									"name": "Retailer"
-								},
-								"sink": {
-									"name": "Retailer",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Product"
+									"name": "Product",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Product",
+									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "SalesValueUSD"
+									"name": "SalesValueUSD",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "SalesValueUSD",
+									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
 									"precision": 18
@@ -92,12 +104,36 @@
 							},
 							{
 								"source": {
-									"name": "UnitsSold"
+									"name": "UnitsSold",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "UnitsSold",
-									"physicalType": "int",
-									"precision": 10
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "PipelineRunId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PipelineRunId",
+									"type": "Guid",
+									"physicalType": "uniqueidentifier"
+								}
+							},
+							{
+								"source": {
+									"name": "SourceFileName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SourceFileName",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
