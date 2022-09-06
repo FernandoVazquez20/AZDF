@@ -17,6 +17,19 @@
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "SoureFileName",
+								"value": "$$FILEPATH"
+							},
+							{
+								"name": "PipelineRunId",
+								"value": {
+									"value": "@pipeline().RunId",
+									"type": "Expression"
+								}
+							}
+						],
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
@@ -38,6 +51,56 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "SalesMonth"
+								},
+								"sink": {
+									"name": "SalesMonth",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Retailer"
+								},
+								"sink": {
+									"name": "Retailer",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Product"
+								},
+								"sink": {
+									"name": "Product",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "SalesValueUSD"
+								},
+								"sink": {
+									"name": "SalesValueUSD",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "UnitsSold"
+								},
+								"sink": {
+									"name": "UnitsSold",
+									"physicalType": "int",
+									"precision": 10
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -59,6 +122,11 @@
 				]
 			}
 		],
+		"variables": {
+			"@pipeline": {
+				"type": "String"
+			}
+		},
 		"folder": {
 			"name": "Chapter4"
 		},
