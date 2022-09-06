@@ -14,7 +14,8 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "HandyCAndy.parquet",
-				"folderPath": "datalake"
+				"folderPath": "datalake",
+				"container": "output"
 			},
 			"compressionCodec": "snappy"
 		},
